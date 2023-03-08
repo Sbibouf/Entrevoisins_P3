@@ -1,13 +1,16 @@
-package com.openclassrooms.entrevoisins;
+package com.openclassrooms.entrevoisins.ui.neighbour_list;
 
+import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.openclassrooms.entrevoisins.R;
+
 import butterknife.BindView;
+import butterknife.OnClick;
 
 public class activity_detail_neighbour extends AppCompatActivity {
 
@@ -32,5 +35,26 @@ public class activity_detail_neighbour extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail_neighbour);
+        AfficheInfoUser();
+        //getSupportActionBar().setHomeButtonEnabled(true);
+    }
+
+    @OnClick(R.id.ajouter_favoris)
+    void AjouterFavoris() {
+        //ajoute le user a la liste des favoris
+        //change l'icone sur la page du user
+    }
+
+    public void AfficheInfoUser() {
+
+        //Affiche les information du User sur la page en mettant à jour les view
+        //mAvatar.setAnimation(avatar);
+        //mNom.setText(nom);
+        //mAdresse.setText(adresse);
+        //mTelephone.setText(telephone);
+        //mSiteWeb.setText(siteweb);
+        //mAPropos.setText(apropos);
+
+
     }
 }

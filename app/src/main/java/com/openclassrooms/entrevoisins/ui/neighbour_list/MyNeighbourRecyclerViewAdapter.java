@@ -1,6 +1,8 @@
 package com.openclassrooms.entrevoisins.ui.neighbour_list;
 
+import android.app.Activity;
 import android.support.v7.widget.RecyclerView;
+import android.text.Layout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -71,4 +73,10 @@ public class MyNeighbourRecyclerViewAdapter extends RecyclerView.Adapter<MyNeigh
             ButterKnife.bind(this, view);
         }
     }
+
+    //@OnClick(R.id.user)
+    //void DetailUser() {
+    // Intent detailuser = new Intent(mActivity, activity_detail_neighbour.class);
+    //   mActivity.startActivity(detailuser);
+    //}
 }

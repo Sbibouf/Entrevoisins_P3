@@ -6,7 +6,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.neighbour_list.activity_detail_neighbour">
+    tools:context=".Controllers.Activities.activity_detail_neighbour">
 
     <FrameLayout
         android:id="@+id/avatar_detail"

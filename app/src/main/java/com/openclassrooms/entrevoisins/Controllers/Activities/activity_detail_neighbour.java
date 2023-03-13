@@ -1,4 +1,4 @@
-package com.openclassrooms.entrevoisins.ui.neighbour_list;
+package com.openclassrooms.entrevoisins.Controllers.Activities;
 
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -37,6 +37,7 @@ public class activity_detail_neighbour extends AppCompatActivity {
         setContentView(R.layout.activity_detail_neighbour);
         AfficheInfoUser();
         //getSupportActionBar().setHomeButtonEnabled(true);
+        //setDisplayHomeAsUpEnabled ?
     }
 
     @OnClick(R.id.ajouter_favoris)

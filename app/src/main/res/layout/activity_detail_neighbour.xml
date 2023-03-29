@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    android:orientation="vertical"
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#DDDDDD"
+    android:orientation="vertical"
     tools:context=".Controllers.Activities.activity_detail_neighbour">
 
     <FrameLayout
-        android:id="@+id/avatar_detail"
-        android:layout_width="408dp"
+        android:id="@+id/Layout"
+        android:layout_width="match_parent"
         android:layout_height="309dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
@@ -21,13 +21,12 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <ImageButton
-            android:id="@+id/fleche_retour"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:clickable="true"
-            android:contentDescription="fleche_retour"
-            app:srcCompat="@android:drawable/ic_menu_revert" />
+        <ImageView
+            android:id="@+id/avatar_detail"
+            android:layout_width="match_parent"
+            android:layout_height="fill_parent"
+            android:scaleType="centerCrop"
+            tools:srcCompat="@tools:sample/avatars" />
     </FrameLayout>
 
     <android.support.design.widget.FloatingActionButton
@@ -37,13 +36,16 @@
         android:layout_marginStart="340dp"
         android:layout_marginTop="21dp"
         android:layout_marginBottom="370dp"
+        android:background="@android:drawable/editbox_background"
+        android:backgroundTint="#EDEDED"
         android:clickable="true"
         android:contentDescription="etoile_favoris"
+        app:borderWidth="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/avatar_detail"
+        app:layout_constraintTop_toBottomOf="@+id/Layout"
         app:layout_constraintVertical_bias="0.695"
-        app:srcCompat="@drawable/ic_star_border_white_24dp" />
+        app:srcCompat="@drawable/ic_favoris_off" />
 
     <LinearLayout
         android:id="@+id/linearLayout"
@@ -52,7 +54,9 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="1dp"
         android:layout_marginEnd="8dp"
+        android:background="@android:drawable/editbox_background"
         android:orientation="vertical"
+        android:padding="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ajouter_favoris">
@@ -65,12 +69,18 @@
             android:text="Nom Prenom"
             android:textSize="20sp" />
 
+        <View
+            android:id="@+id/divider"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="?android:attr/listDivider" />
+
         <TextView
             android:id="@+id/adresse_detail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
-            android:drawableStart="@android:drawable/ic_menu_call"
+            android:drawableStart="@drawable/ic_adresse"
             android:text="Adresse" />
 
         <TextView
@@ -78,7 +88,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
-            android:drawableStart="@drawable/ic_person_add_white_24dp"
+            android:drawableStart="@drawable/ic_telephone"
             android:text="Téléphone" />
 
         <TextView
@@ -86,7 +96,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
-            android:drawableStart="@android:drawable/ic_media_play"
+            android:drawableStart="@drawable/ic_facebook"
             android:text="Facebook" />
     </LinearLayout>
 
@@ -98,7 +108,9 @@
         android:layout_marginTop="42dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="61dp"
+        android:background="@android:drawable/editbox_background"
         android:orientation="vertical"
+        android:padding="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.666"
@@ -107,11 +119,34 @@
         app:layout_constraintVertical_bias="0.383">
 
         <TextView
-            android:id="@+id/a_propos_detail"
+            android:id="@+id/textView2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingStart="8dp"
+            android:text="A propos de moi"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textSize="24sp" />
+
+        <View
+            android:id="@+id/divider2"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="?android:attr/listDivider" />
+
+        <ScrollView
+            android:id="@+id/scrollView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="A propos de moi"
-            android:textSize="24sp" />
+            android:textSize="24sp">
+
+            <TextView
+                android:id="@+id/a_propos_detail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="8dp"
+                android:text="TextView" />
+        </ScrollView>
 
     </LinearLayout>
 

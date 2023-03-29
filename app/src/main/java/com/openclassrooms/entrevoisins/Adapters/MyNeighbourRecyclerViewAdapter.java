@@ -1,5 +1,6 @@
 package com.openclassrooms.entrevoisins.Adapters;
 
+import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -29,6 +30,7 @@ public class MyNeighbourRecyclerViewAdapter extends RecyclerView.Adapter<MyNeigh
         mNeighbours = items;
     }
 
+    @NonNull
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())
@@ -71,10 +73,8 @@ public class MyNeighbourRecyclerViewAdapter extends RecyclerView.Adapter<MyNeigh
             ButterKnife.bind(this, view);
         }
     }
+    public Neighbour getUser(int position){
+        return this.mNeighbours.get(position);
+    }
 
-    //@OnClick(R.id.user)
-    //void DetailUser() {
-    // Intent detailuser = new Intent(mActivity, activity_detail_neighbour.class);
-    //   mActivity.startActivity(detailuser);
-    //}
 }

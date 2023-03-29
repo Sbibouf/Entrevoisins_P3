@@ -4,9 +4,6 @@
     android:id="@+id/user"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@drawable/pressed_layout"
-    android:clickable="true"
-    android:onClick="detail_neighbour"
     android:orientation="vertical">
 
 
@@ -26,7 +23,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
-        android:drawableStart="@drawable/ic_star_white_24dp"
+        android:drawableStart="@drawable/ic_favoris_on"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/item_list_avatar_favoris"
         app:layout_constraintStart_toEndOf="@+id/item_list_avatar_favoris"

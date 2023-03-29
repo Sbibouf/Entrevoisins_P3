@@ -8,8 +8,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 
-import com.openclassrooms.entrevoisins.R;
 import com.openclassrooms.entrevoisins.Adapters.ListNeighbourPagerAdapter;
+import com.openclassrooms.entrevoisins.R;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -43,19 +43,6 @@ public class ListNeighbourActivity extends AppCompatActivity {
 
     }
 
-    public void detail_neighbour(View v) {
-
-        Intent detail_neighbour = new Intent(ListNeighbourActivity.this, activity_detail_neighbour.class);
-
-        if(v == mViewPager.getChildAt(0)) {
-
-            startActivity(detail_neighbour);
-        }
-        //PUTEXTRA avec les infos du user cliqué
-
-
-
-    }
 
     @OnClick(R.id.add_neighbour)
     void addNeighbour() {

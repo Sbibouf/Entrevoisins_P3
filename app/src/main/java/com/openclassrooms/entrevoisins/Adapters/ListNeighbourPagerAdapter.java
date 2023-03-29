@@ -17,12 +17,14 @@ public class ListNeighbourPagerAdapter extends FragmentPagerAdapter {
 
     /**
      * getItem is called to instantiate the fragment for the given page.
+     *
      * @param position
      * @return
      */
     @Override
     public Fragment getItem(int position) {
-        switch(position){
+
+        switch (position) {
             case 0:
                 return NeighbourFragment.newInstance();
             case 1:
@@ -34,6 +36,7 @@ public class ListNeighbourPagerAdapter extends FragmentPagerAdapter {
 
     /**
      * get the number of pages
+     *
      * @return
      */
     @Override
@@ -44,7 +47,7 @@ public class ListNeighbourPagerAdapter extends FragmentPagerAdapter {
     @Nullable
     @Override
     public CharSequence getPageTitle(int position) {
-        switch(position){
+        switch (position) {
             case 0:
                 return "Voisins";
             case 1:
@@ -53,4 +56,5 @@ public class ListNeighbourPagerAdapter extends FragmentPagerAdapter {
                 return null;
         }
     }
+
 }

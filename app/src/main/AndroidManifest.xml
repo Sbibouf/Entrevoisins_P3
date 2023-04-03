@@ -15,6 +15,7 @@
         <activity
             android:name=".Controllers.Activities.activity_detail_neighbour"
             android:exported="false"
+            android:theme="@style/AppTheme.NoActionBar"
             android:parentActivityName=".Controllers.Activities.ListNeighbourActivity">
             <meta-data
                 android:name="android.app.lib_name"

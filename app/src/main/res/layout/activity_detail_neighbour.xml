@@ -12,9 +12,7 @@
         android:id="@+id/Layout"
         android:layout_width="match_parent"
         android:layout_height="309dp"
-        android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
         android:layout_marginBottom="402dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -34,32 +32,56 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="340dp"
-        android:layout_marginTop="21dp"
-        android:layout_marginBottom="370dp"
         android:background="@android:drawable/editbox_background"
         android:backgroundTint="#EDEDED"
         android:clickable="true"
         android:contentDescription="etoile_favoris"
         app:borderWidth="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/Layout"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/Layout"
         app:layout_constraintVertical_bias="0.695"
         app:srcCompat="@drawable/ic_favoris_off" />
+
+    <TextView
+        android:id="@+id/nom_avatar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginBottom="8dp"
+        android:text="TextView"
+        android:textColor="#FFFFFF"
+        android:textSize="40sp"
+        app:layout_constraintBottom_toBottomOf="@+id/Layout"
+        app:layout_constraintStart_toStartOf="@+id/Layout" />
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/menu_detail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:background="@android:color/transparent"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        app:layout_constraintEnd_toEndOf="@+id/Layout"
+        app:layout_constraintStart_toStartOf="@+id/Layout"
+        app:layout_constraintTop_toTopOf="@+id/Layout"
+        tools:visibility="visible" />
+
 
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="395dp"
         android:layout_height="194dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="1dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="8dp"
         android:background="@android:drawable/editbox_background"
         android:orientation="vertical"
         android:padding="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ajouter_favoris">
+        app:layout_constraintTop_toBottomOf="@+id/Layout">
 
         <TextView
             android:id="@+id/nom_detail"

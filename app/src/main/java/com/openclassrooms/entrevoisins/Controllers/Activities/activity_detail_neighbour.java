@@ -3,7 +3,10 @@ package com.openclassrooms.entrevoisins.Controllers.Activities;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
+import android.view.Menu;
 import android.view.View;
+import android.view.Window;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -14,6 +17,7 @@ import com.openclassrooms.entrevoisins.di.DI;
 import com.openclassrooms.entrevoisins.model.Neighbour;
 import com.openclassrooms.entrevoisins.service.NeighbourApiService;
 
+import java.io.Serializable;
 import java.util.List;
 import java.util.Objects;
 
@@ -21,20 +25,15 @@ public class activity_detail_neighbour extends AppCompatActivity implements View
 
     ImageView mAvatar;
     FloatingActionButton mAjouterFavoris;
-    TextView mNom;
-    TextView mAdresse;
-    TextView mTelephone;
-    TextView mSiteWeb;
-    TextView mAPropos;
-    Bundle extras;
-    String dname;
-    boolean Fav;
-    private List<Neighbour> mNeighbours;
+    TextView mNomAvatar, mNom, mAdresse, mTelephone, mSiteWeb, mAPropos;;
+    Neighbour dNeighbour;
+    private NeighbourApiService mApiService;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail_neighbour);
+        mNomAvatar = (TextView) findViewById(R.id.nom_avatar);
         mAvatar = (ImageView) findViewById(R.id.avatar_detail);
         mNom = (TextView) findViewById(R.id.nom_detail);
         mAdresse = (TextView) findViewById(R.id.adresse_detail);
@@ -43,31 +42,26 @@ public class activity_detail_neighbour extends AppCompatActivity implements View
         mAPropos = (TextView) findViewById(R.id.a_propos_detail);
         mAjouterFavoris = (FloatingActionButton) findViewById(R.id.ajouter_favoris);
         mAjouterFavoris.setOnClickListener(this);
-        extras = getIntent().getExtras();
-        dname = extras.getString("name");
-        Fav = extras.getBoolean("fav");
-        mNeighbours = DI.getNeighbourApiService().getNeighbours();
-        changer_image_favoris();
-        AfficheInfoUser();
+        mApiService = DI.getNeighbourApiService();
+        dNeighbour = (Neighbour) getIntent().getSerializableExtra("neighbour");
+        this.AfficheInfoUser();
+        this.changer_image_favoris();
+        this.configureToolbar();
     }
 
 
     public void AfficheInfoUser() {
 
-        if (extras != null) {
+        if (dNeighbour != null) {
 
-            String dphone = extras.getString("phone");
-            String daddress = extras.getString("address");
-            String dabout = extras.getString("about");
-            String davatar = extras.getString("avatar");
-
-            mNom.setText(dname);
-            mTelephone.setText(dphone);
-            mAdresse.setText(daddress);
-            mAPropos.setText(dabout);
-            mSiteWeb.setText("www.facebook.fr/" + dname);
+            mNomAvatar.setText(dNeighbour.getName());
+            mNom.setText(dNeighbour.getName());
+            mTelephone.setText(dNeighbour.getPhoneNumber());
+            mAdresse.setText(dNeighbour.getAddress());
+            mAPropos.setText(dNeighbour.getAboutMe());
+            mSiteWeb.setText("www.facebook.fr/" + dNeighbour.getName());
             Glide.with(mAvatar.getContext())
-                    .load(davatar)
+                    .load(dNeighbour.getAvatarUrl())
                     .into(mAvatar);
 
         }
@@ -82,30 +76,40 @@ public class activity_detail_neighbour extends AppCompatActivity implements View
 
             if (Objects.equals(mAjouterFavoris.getDrawable().getConstantState(), getResources().getDrawable(R.drawable.ic_favoris_off).getConstantState())) {
                 mAjouterFavoris.setImageDrawable(getResources().getDrawable(R.drawable.ic_favoris_on));
-                Toast.makeText(getApplicationContext(), "" + dname + " ajouté en favoris", Toast.LENGTH_SHORT).show();
+                mApiService.createFavNeighbour(dNeighbour);
+                Toast.makeText(getApplicationContext(), "" + dNeighbour.getName() + " ajouté en favoris", Toast.LENGTH_SHORT).show();
 
-            } else {
+
+            } else{
                 mAjouterFavoris.setImageDrawable(getResources().getDrawable(R.drawable.ic_favoris_off));
-                Toast.makeText(getApplicationContext(), "" + dname + " supprimé des favoris", Toast.LENGTH_SHORT).show();
-            }
-
-            for (Neighbour neighbour : mNeighbours) {
-                if (Objects.equals(neighbour.getName(), dname) && neighbour.isFav() == false) {
-                    neighbour.setFav(true);
-                } else if (Objects.equals(neighbour.getName(), dname) && neighbour.isFav() == true) {
-                    neighbour.setFav(false);
-                }
+                mApiService.deleteFavNeighbour(dNeighbour);
+                Toast.makeText(getApplicationContext(), "" + dNeighbour.getName() + " supprimé des favoris", Toast.LENGTH_SHORT).show();
 
             }
+
         }
     }
 
     public void changer_image_favoris() {
 
-        for (Neighbour neighbour : mNeighbours) {
-            if (neighbour.isFav() == true && Objects.equals(neighbour.getName(), dname)) {
+            if (dNeighbour.isFav() == true) {
                 mAjouterFavoris.setImageDrawable(getResources().getDrawable(R.drawable.ic_favoris_on));
             }
-        }
+
+    }
+
+
+    private void configureToolbar() {
+        Toolbar toolbar = (Toolbar) findViewById(R.id.menu_detail);
+        toolbar.setTitle("");
+        setSupportActionBar(toolbar);
+        Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
+
+
+    }
+
+    @Override
+    public void onBackPressed() {
+       // super.onBackPressed();
     }
 }

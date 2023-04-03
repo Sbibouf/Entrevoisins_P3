@@ -103,11 +103,9 @@ public class FavorisFragment extends Fragment {
                     public void onItemClicked(RecyclerView recyclerView, int position, View v) {
                         Neighbour user = adapter.getUser(position);
                         Intent intent = new Intent(getActivity(), activity_detail_neighbour.class);
-                        intent.putExtra("name", user.getName());
-                        intent.putExtra("phone", user.getPhoneNumber());
-                        intent.putExtra("address", user.getAddress());
-                        intent.putExtra("about", user.getAboutMe());
-                        intent.putExtra("avatar", user.getAvatarUrl());
+                        Bundle b = new Bundle();
+                        b.putSerializable("neighbour", user);
+                        intent.putExtras(b);
                         startActivity(intent);
 
                     }

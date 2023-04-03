@@ -26,7 +26,7 @@ Ce projet n'est pas soumis à une license
 ![detail_activity](https://user-images.githubusercontent.com/113589595/229542860-d90e6690-84f5-4a1e-a53e-d991c1f6bcb2.png)
 
 ## Installation
-Télécharger le fichier .zip
-Extraire le fichier .zip
-Ouvrir le projet avec Android Studio et lancer l'application depuis votre emulateur en faisant Alt + Maj + X
-
+- Télécharger le fichier .zip
+- Extraire le fichier .zip
+- Ouvrir le projet avec Android Studio en cliquant sur "file" puis "open" et en selectionnant l'application dans le dossier extrait
+- Lancer l'application depuis votre emulateur en faisant Alt + Maj + X ou en cliquant sur "run" puis "run 'app'"

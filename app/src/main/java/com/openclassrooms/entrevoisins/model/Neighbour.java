@@ -1,6 +1,5 @@
 package com.openclassrooms.entrevoisins.model;
 
-import android.os.Parcelable;
 
 import java.io.Serializable;
 import java.util.Objects;

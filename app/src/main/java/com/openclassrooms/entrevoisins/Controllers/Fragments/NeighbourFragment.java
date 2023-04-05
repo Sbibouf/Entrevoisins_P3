@@ -10,10 +10,8 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import com.openclassrooms.entrevoisins.Adapters.MyNeighbourRecyclerViewAdapter;
-import com.openclassrooms.entrevoisins.Controllers.Activities.ListNeighbourActivity;
 import com.openclassrooms.entrevoisins.Controllers.Activities.activity_detail_neighbour;
 import com.openclassrooms.entrevoisins.R;
 import com.openclassrooms.entrevoisins.di.DI;

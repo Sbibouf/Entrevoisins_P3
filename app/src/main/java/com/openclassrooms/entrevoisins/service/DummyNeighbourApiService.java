@@ -27,7 +27,7 @@ public class DummyNeighbourApiService implements  NeighbourApiService {
         List<Neighbour> FavNeighbours = new ArrayList<>();
         for(Neighbour neighbour : neighbours) {
 
-            if(neighbour.isFav()==true && !FavNeighbours.contains(neighbour)){
+            if(neighbour.isFav()){
                 FavNeighbours.add(neighbour);
             }
         }

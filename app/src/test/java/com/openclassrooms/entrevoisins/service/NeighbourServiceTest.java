@@ -1,6 +1,7 @@
 package com.openclassrooms.entrevoisins.service;
 
 import com.openclassrooms.entrevoisins.di.DI;
+import com.openclassrooms.entrevoisins.model.DummyNeighbourGenerator;
 import com.openclassrooms.entrevoisins.model.Neighbour;
 
 import org.hamcrest.collection.IsIterableContainingInAnyOrder;

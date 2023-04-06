@@ -4,7 +4,7 @@ Entrevoisins permet à des personnes d’un même quartier de se rendre des peti
 
 ## Technologies
 - Java
-- Html 
+- Xml 
 
 ## Contribuer au projet
 
